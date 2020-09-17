@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 
 protocol NetworkManagerDelegate: class {
-    func updateInteface (_:NetworkManager, with currentCritics: MovieCriticsData)
+    func updateCritics (_:NetworkManager, with currentCritics: MovieCriticsData)
     func updateReviews (_:NetworkManager, with currentReviews: ReviewsData)
 }
 
@@ -44,7 +44,7 @@ class NetworkManager {
             DispatchQueue.main.async {
                 if let data = data {
                     if let currentData = self.JSONdecoder(withData: data) {
-                        self.delegate?.updateInteface(self, with: currentData)
+                        self.delegate?.updateCritics(self, with: currentData)
                     };
                     if let currentReviewsData = self.JSONdecoderReviews(withData: data) {
                         self.delegate?.updateReviews(self, with: currentReviewsData)

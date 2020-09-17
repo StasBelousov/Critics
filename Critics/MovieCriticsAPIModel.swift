@@ -12,7 +12,7 @@ struct MovieCritics: Codable {
     let status, copyright: String?
     let numResults: Int?
     let results: [Result]
-
+    
     enum CodingKeys: String, CodingKey {
         case status, copyright
         case numResults = "num_results"
